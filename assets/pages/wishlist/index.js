@@ -29,17 +29,32 @@ const fetchApi = () => {
 		 console.log(data);
 		let content = ""
 		let contentData = data.forEach(element => { 
-			content += 
-			`<tbody>
-				  <tr>
-					<th scope="row">${element.id}</th>
-					<td>${element.name}</td>
-					<td>${element.email}</td>
-					<td>${element.phone}</td>
-					<td><img src="${element.dish.image}" class="card-img-top cart-image" alt="image"></td>
-					<td>${element.dish.title}</td>
-				  </tr>
-				</tbody>`
+			content +=
+			`
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">No</th>
+						<th scope="col" width="20%">Name</th>
+						<th scope="col" width="20%">Email</th>
+						<th scope="col" width="20%">Phone Number</th>
+						<th scope="col" width="20%">Image</th>
+						<th scope="col" width="20%">Dish</th>
+					</tr>
+				</thead>
+
+				<tbody>
+				<tr>
+				  <th scope="row">${element.id}</th>
+				  <td>${element.name}</td>
+				  <td>${element.email}</td>
+				  <td>${element.phone}</td>
+				  <td><img src="${element.dish.image}" class="card-img-top cart-image" alt="image"></td>
+				  <td>${element.dish.title}</td>
+				</tr>
+		  </tbody>
+			</table>
+`
 		});
 
 		wishlist.innerHTML = content
